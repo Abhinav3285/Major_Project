@@ -2,6 +2,16 @@ import streamlit as st
 import os
 import sys
 
+# -------------------------------------------------
+# PAGE CONFIG - MUST BE FIRST!
+# -------------------------------------------------
+st.set_page_config(
+    page_title="NeuroScan AI - Advanced Medical Imaging",
+    layout="wide",
+    page_icon="🧠",
+    initial_sidebar_state="expanded"
+)
+
 # Set OpenCV environment variable only on Windows
 if sys.platform.startswith('win'):
     os.environ["OPENCV_VIDEOIO_PRIORITY_MSMF"] = "0"
@@ -94,16 +104,6 @@ def get_clinical_recommendation(stage, area, tumor_type):
         return recommendations["Moderate Risk"]
     else:
         return recommendations["High Risk"]
-
-# -------------------------------------------------
-# 3. PAGE CONFIG
-# -------------------------------------------------
-st.set_page_config(
-    page_title="NeuroScan AI - Advanced Medical Imaging",
-    layout="wide",
-    page_icon="🧠",
-    initial_sidebar_state="expanded"
-)
 
 # -------------------------------------------------
 # 4. CUSTOM CSS STYLING
